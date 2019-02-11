@@ -12,8 +12,8 @@ export default {
 
 <style lang="scss" scoped>
 #nav{
-      width:100%;height:30px;
-     position:absolute;top:44px;left:0;
+      width:100%;height:60px;
+     position:absolute;top:88px;left:0;
 }
 </style>
 

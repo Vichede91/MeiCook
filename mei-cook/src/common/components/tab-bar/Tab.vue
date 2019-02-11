@@ -39,10 +39,10 @@ export default {
 }
 .tubiao{
     display: block;
-    height:22px;
-    font-size: 20px;
+    height:44px;
+    font-size: 40px;
     text-align: center;
-    margin:2px 0;
+    margin:8px 0;
 }
 .router-link-active{
     color:rgba(239,179,31,1);
@@ -50,6 +50,6 @@ export default {
 
 .tab span{
     display: block;
-    font-size: 12px;
+    font-size: 24px;
 }
 </style>

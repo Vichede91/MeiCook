@@ -13,7 +13,7 @@ export default {
 <style scoped>
 .tabs{
     width: 100%;
-    height: 49px;
+    height: 98px;
     position: absolute;
     left: 0;
     bottom: 0;

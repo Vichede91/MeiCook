@@ -27,8 +27,8 @@ export default {
 #home{
    width:100%;height:100%;
    .header{
-        display: flex; width:100%;height:44px;position:absolute;top:0;left:0;
-       padding: 8px;background:#ccc;
+        display: flex; width:100%;height:88px;position:absolute;top:0;left:0;
+       padding: 16px;background:#ccc;
    }
  
 }
