@@ -3,8 +3,7 @@
    <header class="header">
        <ul class="list border-bottom">
            <li class="list_item" v-for="item in navData" :key="item.id"
-            :class="{active: selectIndex===item.id}" ref="item" @click="selectTab(item.id)">
-                  
+            :class="{active: selectIndex===item.id}" ref="item" @click="selectTab(item.id)">                
                {{item.title}}
            </li>
        </ul>

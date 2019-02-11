@@ -1,7 +1,7 @@
 <template>
 <div id="home" class="page">
     <header class="header">
-        <a class="logo" href="javascript: ;"><img src="/img/Page 1 Copy 2.png"></a>     
+        <h2 class="logo" href="javascript: ;"><img src="/img/Page 1 Copy 2.png"></h2>     
     </header>
     <homeNav/>
 </div>

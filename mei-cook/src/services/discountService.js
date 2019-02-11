@@ -26,6 +26,40 @@ export function getdiscountnewList(){
                 console.log(data)
                 resolve({
                     bannerList:data.bannerList,
+                    giftPackage:data.giftPackage.map((item)=>{
+                        return {
+                            id:item.id,
+                            num:'0'+item.num,
+                            title:item.title,
+                            paragraph1:item.paragraph1,
+                            paragraph2:item.paragraph2,
+                            imageList:item.imageList.map(item1=>{
+                                return{
+                                    id:item1.id,
+                                    imgdiscount:item1.img
+                                }
+                            }),
+                            shopImg:item.shopImg.map(item2=>{
+                                return{
+                                    id:item2.id,
+                                    imgShop:item2.img,
+                                    name:item2.name,
+                                    vip:item2.vip,
+                                    price:item2.price,
+                                    buy:item2.buy
+                                }
+                                
+                            }),
+                            preference:item.preference.map(item3=>{
+                                return{
+                                    id:item3.id,
+                                    imgPreference:item3.img
+                                }
+                                
+                            }),
+                            explain:item.explain
+                        }
+                    })
                 })
             }
         )

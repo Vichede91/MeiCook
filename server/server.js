@@ -34,32 +34,35 @@ app.get(api.DISCOUNT_NEWRECRUITE_URL,(req,res)=>{
         message:'ok',
         data:{
             'bannerList':"@image('686x800','@color','@name')",
-            'giftPackage|2':[
+            'giftPackage|4':[
                 {
-                    'id|+1':01,
-                    name:'@ctitle',
-                    'title|6':'@name',
-                    'explainOne|10-20':'@name',
-                    'explainTwo|10-20':'@name',
-                    'bannerShop1|2':"@image('299x340','@color','@name')",
-                    'bannerShop2|8-10':"@image('299x340','@color','@name')",
-                    'tabImg':[
-                        {
-                           'discounts|4':[
-                               {
-                                   'id|+1':11,
-                                    'price|1-100':12,
-                                    'priceTitle|4-6':'@name',
-                                    'explan':"专享券",
-                                    'getquan|1':["以领取","未领取"]
-                               }
-    
-                           ]
-                        }
-                    ],
-                    'explain|30-50':'@name'
+                    'id|+1':1,
+                    'num|+1':01,
+                    'title':'@ctitle',
+                    'paragraph1': '@cparagraph(1)',
+                    'paragraph2': '@cparagraph(1)',
+                    // 'bannerShop1|2':"@image('299x340','@color','@name')",
+                    'imageList|4': [{
+                        'id|+1': 10,
+                        // 'img': '@image',//生成一个随机的图片地址,
+                        'img': '@image("164x244", "@color","@name","优惠券")', //生成一个200*100, 背景色#000，前景色#fff, 格式png, 文字mock.js的图片
+                    }],
+                    'shopImg|2':[{
+                        'id|+1': 40,
+                        'img':'@image("299x340", "@color","@name","新人1元专区")',
+                        'name':'@ctitle',
+                        'vip':'新客专享价￥1',
+                        'price|100-200':32,
+                        'buy':'立即购买'
+                    }],
+                    'preference|6-20':[{
+                        'id|+1': 60,
+                        'img':'@image("686x400", "@color","@name","明星组合特惠专区")'
+                    }],
+                    'explain|4-6':'@cparagraph(1)'
                 }
             ],
+
     
         }
     })
