@@ -9,7 +9,7 @@ const discount=require('./data/discount/newRrecruits')
 
 
 const app = express();
-//请求首页的分类
+//请求优惠ta数据
 app.get(api.DISCOUNT_TOP_URL,(req,res)=>{
     let result =mock({
         status:0,
