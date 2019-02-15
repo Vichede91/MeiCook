@@ -7,8 +7,8 @@
             </div>
             <div v-for="item in dataList" :key="item.id">
                 <div class="newPeople">
-                    <span>{{item.num}}</span>
-                    <p>{{item.title}}</p>
+                    <span>{{item.name}}</span>
+                    <p><span>{{item.title}}</span></p>
                 </div>
                 <p class="newTitle titles">{{item.paragraph1}}</p>
                 <p class="newTitle">{{item.paragraph2}}</p>
@@ -82,8 +82,11 @@ export default {
         border: 1px solid #260A0A;margin:64px 0 0 264px;
         span{display:inline-block;width:100%;text-align: center;margin-top:32px;font-size: 48px;line-height: 50px;color: #3E1717; }
         p{
-            width:222px;height:72px;line-height: 38px;font-size:36px;background:#fff;
-            color: #3E1717;margin-left: -18px;text-align: center;
+           width:222px;line-height: 38px;background:#fff;margin-left: -18px;
+            span{
+               font-size:36px;
+                color: #3E1717;text-align: center;
+            }
         }
     }
     .titles{margin:64px 0 32px 0;}
@@ -115,7 +118,7 @@ export default {
                     background: #F6A958;padding:5px;margin-left:10px;
                 }
             }
-            .buy{font-size: 16px;color: #FFFFFF;letter-spacing: 0;line-height: 18px;
+            .buy{font-size: 36px;color: #FFFFFF;letter-spacing: 0;line-height: 38px;
             padding:0 42px;background-image: linear-gradient(-194deg, #D5842A 0%, #F3C58C 43%, #D5842A 100%);
             margin-left: 54px;}
         }

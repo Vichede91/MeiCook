@@ -16,6 +16,7 @@ export function getdiscountTopList(){
     
 }
 
+//新人专享数据
 export function getdiscountnewList(){
     // 使用async， await
     return new Promise((resolve, reject)=>{
@@ -23,7 +24,6 @@ export function getdiscountnewList(){
         .then(        
             (data)=>{
                 // 过滤数据
-                console.log(data)
                 resolve({
                     bannerList:data.bannerList,
                     giftPackage:data.giftPackage.map((item)=>{
@@ -58,6 +58,86 @@ export function getdiscountnewList(){
                                 
                             }),
                             explain:item.explain
+                        }
+                    })
+                })
+            }
+        )
+    })
+    
+}
+
+//促销专区数据
+export function getdiscountpromotionList(){
+    // 使用async， await
+    return new Promise((resolve, reject)=>{
+        FetchGet(API.DISCOUNT_PROMOTION_URL)
+        .then(        
+            (data)=>{
+                // 过滤数据
+                console.log(data)
+                resolve({
+                    promotion:data.promotion.map((item)=>{
+                        return {
+                            id:item.id,
+                            name:item.name,
+                            title:item.title,
+                            paragraph1:item.paragraph1,
+                            shopImg:item.shopImg.map(item2=>{
+                                return{
+                                    id:item2.id,
+                                    imgShop:item2.img,
+                                    name:item2.name,
+                                    explan:item2.explan,
+                                    vip:item2.vip,
+                                    price:item2.price,
+                                    buy:item2.buy
+                                }
+                                
+                            })
+                        }
+                    })
+                })
+            }
+        )
+    })
+    
+}
+
+//健康专区数据
+export function getdiscounthealthyList(){
+    // 使用async， await
+    return new Promise((resolve, reject)=>{
+        FetchGet(API.DISCOUNT_HEALTHY_URL)
+        .then(        
+            (data)=>{
+                // 过滤数据
+
+                resolve({
+                    healthy:data.healthy.map((item)=>{
+                        return {
+                            id:item.id,
+                            name:item.name,
+                            title:item.title,
+                            bannerUrl:item.bannerUrl,
+                            origin:item.origin.map(item1=>{
+                                return {
+                                    id:item1.id,
+                                    banner:item1.banner,
+                                    name:item1.name,
+                                    explains:item1.explains
+                                }
+                            }),
+                            advantage:item.advantage.map(item2=>{
+                                return {
+                                    id:item2.id,
+                                    title:item2.title,
+                                    img:item2.img,
+                                    name:item2.name,
+                                    serves:item2.serves,
+                                    explains:item2.explains
+                                }
+                            })
                         }
                     })
                 })
