@@ -7,6 +7,10 @@ const fs = require('fs');
 const {mock,Random} = require('mockjs');
 const discount=require('./data/discount/newRrecruits')
 
+const http=require('http')
+const jsdom = require('jsdom') ;   
+const { JSDOM } =  jsdom ; 
+
 
 const app = express();
 //请求优惠ta数据
@@ -47,7 +51,76 @@ app.get(api.DISCOUNT_HEALTHY_URL,(req,res)=>{
     res.json(discount.healthyLife)
 })
 
+//分类专区数据
+app.get(api.CATEGORY_LIST_URL, (req, res)=>{
+    let id=url.parse(req.url,true).query.id;
+    // let path='http://m.you.163.com/item/cateList?categoryId='+id;
+    var paths='/item/cateList'
+    http.request({
+        hostname:'m.you.163.com',
+        path:paths
+    },(response)=>{ 
+        let result='';
+        response.on('data',(bf)=>{
+            result+=bf;
+        })
+        response.on('end',()=>{
+            // res.end(result);
+            const dom = new JSDOM(result,{runScripts:"dangerously"})
+            // console.log(dom.window.ftlData,dom.window.ftlData)
+            // res.json(dom.window.globalData)
+            // res.json(dom.window.ftlData)
+            res.json({
+                status:0,
+                message:'ok',
+                data:dom.window.ftlData
+            })
+        })
+    }).end()
+});
+//分类页面分类列表
+app.get(api.CATEGOEY_LIST_GROUP_URL, (req, res)=>{
+    let {categoryId} = url.parse(req.url, true).query;
+    if(!categoryId){
+        res.json({
+            status: 1,
+            message: '缺少参数',
+            data: null
+        });
+        return;
+    }
+    JSDOM.fromURL('http://m.you.163.com/item/cateList?categoryId='+categoryId, {runScripts: 'dangerously'}).then(dom=>{
+        res.json({
+            status: 0,
+            message: 'ok',
+            data: {
+                categoryGroupList: dom.window.ftlData.categoryGroupList,
+                currentCategory: dom.window.ftlData.currentCategory
+            }
+        })
+    })
+})
 
+// // 分类商品列表
+app.get(api.CATEGOEY_LIST_GROUP_ITEM_URL, (req, res)=>{
+    let {categoryId, subCategoryId} = url.parse(req.url, true).query;
+    if(!categoryId || !subCategoryId){
+        res.json({
+            status: 1,
+            message: '缺少参数',
+            data: null
+        });
+        return;
+    }
+
+    JSDOM.fromURL('http://m.you.163.com/item/list?categoryId='+categoryId+'&subCategoryId='+subCategoryId, {runScripts: 'dangerously'}).then(dom=>{
+        res.json({
+            status: 0,
+            message: 'ok',
+            data: dom.window.ftlData.categoryItems
+        })
+    })
+})
 
 
 

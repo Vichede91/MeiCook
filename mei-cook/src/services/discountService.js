@@ -1,5 +1,5 @@
 import API from '../api'
-import {FetchGet, FetchPost} from '../common/fetch'
+import {FetchGet} from '../common/fetch'
 
 // 请求首页的分类
 export function getdiscountTopList(){
