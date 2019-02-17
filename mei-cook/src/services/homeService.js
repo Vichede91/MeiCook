@@ -1,5 +1,32 @@
 import API from '../api'
 import {FetchGet, FetchPost} from '../common/fetch'
+import { resolve } from 'url';
+import { reject } from 'q';
+
+
+// 首页活动数据
+export function getHomeAction(){
+    return new Promise((resolve,reject)=>{
+        FetchGet(API.HOME_HUODONG_URL)
+        .then(data=>{
+            // console.log(data);
+            resolve(data);
+        })
+    })
+   
+}
+
+// 首页明星等数据
+export function getHomeShoppingList(){
+    return new Promise((resolve,reject)=>{
+        FetchGet(API.HOME_SHOPPINGLIST_URL)
+        .then(data=>{
+            // console.log(data);
+            resolve(data);
+        })
+    }) 
+}
+
  //请求分类列表数据
  export function getCategoryList(){
     return new Promise((resolve,reject)=>{
