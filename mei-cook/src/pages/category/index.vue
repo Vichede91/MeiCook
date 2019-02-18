@@ -2,7 +2,7 @@
 <div id="category" class="page">
     <header class="header border-bottom">
         <p><van-icon name="search"/>想吃点什么吗？</p>
-    </header>      
+    </header> 
         <div class="wrap">       
              <scroller  :top="44" :bottom="49" class="border_left">
                 <div class="left_con" v-for="(item, index) in navData" :key="item.id" >
@@ -14,8 +14,7 @@
             </scroller>
              <!-- <CateDatail :indexId="selectItem" :ind="selectIndex"/> -->
               <scroller ref="content" :top="44" :bottom="49"
-                :forword="handleContentforword" class="border_right"
-                :next="handleContentNext" v-if="navData.length>0">
+               class="border_right"  v-if="navData.length>0">            
                 <div>
                     <img class="banner" :src="navData[selectIndex].wapBannerUrl" >
                     <ul class="content_list clear-fix"  v-for="(item,index) in detailData" :key="index">
@@ -34,8 +33,8 @@
 <script>
 import {getCategoryList,getCategoryListGroup} from '../../services/homeService'
 import { Indicator } from 'mint-ui';
-import Vue from 'vue';
-import { Lazyload } from 'vant';
+// import Vue from 'vue';
+// import { Lazyload } from 'vant';
 export default {
 
     data(){
@@ -50,7 +49,6 @@ export default {
     created(){
         getCategoryList()
         .then(data=>{
-            console.log(data)
             this.navData = data.categoryL1List;           
         })
     },
@@ -74,8 +72,6 @@ export default {
                     this.detailData=data.categoryGroupList
                         this.$nextTick(()=>{
                             Indicator.close();
-                            //滚动试图滚到最顶部
-                            // this.$refs.scroller.scrollTo(0,0)
                         })
                     })
                 }

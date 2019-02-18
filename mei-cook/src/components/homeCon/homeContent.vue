@@ -28,7 +28,6 @@ export default {
     },
     created() {
           getHomeShoppingList().then(data=>{
-            console.log(data);
             this.shoppingList = data;
         });
     },

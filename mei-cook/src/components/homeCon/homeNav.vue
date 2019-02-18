@@ -35,7 +35,6 @@ export default {
                 let width = 0;
                 
                 this.$refs.item.map(item=>{
-                    console.log(item.offsetWidth);
                     width += item.offsetWidth;
                     // console.log(width);
                 })

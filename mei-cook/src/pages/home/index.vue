@@ -44,7 +44,6 @@ export default {
     },
     methods:{
         getIndex(index){
-            console.log(indthis.selectIndexex);
             this.selectIndex = index;
             if(index==0){
                 this.isShow = true;
@@ -53,7 +52,6 @@ export default {
                 this.isShow = false;
                 this.isShow2 = true;
             }
-            console.log(this.isShow);
         }
     }
 }
