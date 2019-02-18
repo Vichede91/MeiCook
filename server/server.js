@@ -11,6 +11,7 @@ const http=require('http')
 const jsdom = require('jsdom') ;   
 const { JSDOM } =  jsdom ; 
 
+var Mock = require('mockjs');
 
 const app = express();
 //请求优惠ta数据
