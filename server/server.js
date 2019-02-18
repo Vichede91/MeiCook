@@ -124,7 +124,33 @@ app.get(api.CATEGOEY_LIST_GROUP_ITEM_URL, (req, res)=>{
 
 
 
+app.get(api.HOME_HUODONG_URL,(req,res)=>{
+    let result = require("./data/action.json");
+    res.json(result);
+});
 
+
+//获取明星产品等数据
+app.get(api.HOME_SHOPPINGLIST_URL,(req,res)=>{
+    let data = Mock.mock({
+        "data|8":[{
+            "id|+1":1,
+            'title':'@ctitle(4)',
+            "data|4":[{
+                "src":Random.image("328X350",'@color'),
+                "new_price":'@float(0,1000,1,2)',
+                "old_price":'@float(0, 100, 1, 2)',
+                "title":"@ctitle(1,10)",
+                "number":"@integer(1, 1000)"
+            }]
+
+        }]
+    });
+    // console.log(data);
+
+    res.json(data);
+    
+});
 
 
 
